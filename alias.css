@@ -1,0 +1,324 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    width: 100%;
+    height: 300vh;
+    background: linear-gradient(to bottom, #95DFEA, #4772A7);
+    background-size: cover;
+    position: relative;
+}
+#header{
+    width: 100%;
+    height: 25vh;
+    text-align: center;
+}
+#wholeLogo{
+    width: 10%;
+    height: auto;
+    float: left;
+}
+#mainLogo{
+    width: 15%;
+    height: auto;
+    text-align: center;
+}
+#gameLogo{
+    width: 10%;
+    height: auto;
+    float: right;
+}
+.gameSteps{
+    text-align: center;
+    font-family: "Gill Sans Nova";
+    font-size: 170%;
+    font-weight: 200;
+    margin-top: 15px;
+    display: block;
+    text-decoration: underline;
+}
+#firstStep{
+    margin-top: 5vh;
+}
+#teamData{
+    margin-top: 2%;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+}
+.teamInfo{
+    margin-top: 5px;
+    font-family: "Gill Sans Nova";
+    font-size: 100%;
+    font-weight: 200;
+}
+.saveData{
+    margin-top: 5px;
+    height: 25px;
+    color: darkgreen;
+    border: 1px solid lightgreen;
+    background-color: lightgreen;
+    border-radius: 5px;
+}
+input{
+    height: 20px;
+}
+.saveData:hover{
+    border: 1px solid darkgreen;
+    cursor: pointer;
+}
+#gameRules{
+    width: 80%;
+    margin: auto;
+    height: 85%;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-top: 50px;
+}
+#textDiv{
+    width: 80%;
+    margin: auto;
+    height: inherit;
+    line-height: 1.5;
+}
+#buttonDiv{
+    width: 100%;
+    height: 5vh;
+    text-align: center;
+    margin-top: 10px;
+}
+#gameProcess{
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+    height: 50%;
+}
+table{
+    text-align: center;
+    margin: auto;
+    display: none;
+    background-color: lightblue;
+}
+.tableName{
+    width: 200px;
+}
+.tableScore{
+    width: 50px;
+}
+#gameResults {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+#playButtonDiv{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+#cardContainer{
+    width: 100%;
+    height: 100vh;
+}
+#playCards{
+    margin: auto;
+    margin-top: 5vh;
+    width: 250px;
+    height: 450px;
+    background: white;
+    border-radius: 5px;
+    border: 2px solid lightgreen;
+    position: relative;
+    display: none;
+}
+#cardHead{
+    width: 100%;
+    height: 15%;
+    margin: auto;
+    background-color: lightgreen;
+    text-align: center;
+}
+#cardFoot{
+    width: 100%;
+    margin: auto;
+    height: 15%;
+    bottom: 0;
+    position: absolute;
+    background-color: lightgreen;
+}
+.cardTitle{
+    font-family: cursive;
+    font-size: 150%;
+    color: white;
+    font-weight: 200;
+}
+.difficultLevel{
+    font-family: cursive;
+    font-size: 120%;
+    color: white;
+    font-weight: 200;
+}
+.cardWords{
+    text-align: left;
+    font-family: "Gill Sans Nova Cond Lt";
+    font-size: 140%;
+    font-weight: 200;
+}
+#wordsList{
+    color: green;
+}
+#cardFoot{
+    background-image: url("source/mainIcon.png");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#additionalBox{
+    width: 75%;
+    margin: auto;
+    height: 100%;
+}
+#timer{
+    text-align: center;
+    margin-top: 5vh;
+    font-family: cursive;
+    font-size: 100%;
+    display: none;
+}
+.playingButton{
+    border-radius: 3px;
+    width: auto;
+    height: 25px;
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    color: white;
+    margin: auto;
+}
+.playingButton:hover{
+    cursor: pointer;
+    border: 1px solid blue;
+}
+#wordsButtonDiv{
+    margin-top: 5vh;
+    width: 100%;
+    text-align: center;
+}
+#nextWord{
+    margin-left: 5vw;
+    width: 200px;
+    display: none;
+    font-family: cursive;
+}
+#successWord{
+    width: 200px;
+    margin-right: 5vw;
+    display: none;
+    font-family: cursive;
+}
+#footer{
+    width: 100%;
+    margin: auto;
+    height: 5%;
+    bottom: 0;
+    position: absolute;
+}
+#copyDiv{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+    float: right;
+}
+#gameSettings{
+    text-align: center;
+}
+.custom-dropdown select {
+    background-color: #2980B9;
+    color: #fff;
+    font-size: inherit;
+    padding: .5em;
+    padding-right: 2.5em;
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -moz-appearance: none;
+    -webkit-appearance:none;
+    appearance: none;
+}
+.custom-dropdown select::-ms-expand {
+    display: none;
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.custom-dropdown::after {
+    content: "\25BC";
+    height: 1em;
+    font-size: .625em;
+    line-height: 1;
+    right: 1.2em;
+    top: 50%;
+    margin-top: -.5em;
+}
+
+.custom-dropdown::before {
+    width: 2em;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 0 3px 3px 0;
+    background-color: rgba(0,0,0,.2);
+}
+
+.custom-dropdown::after {
+    color: rgba(0,0,0,.6);
+}
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+}
+.b-page_newyear{
+    background-color: #95DFEA; 
+    height: 19vh
+}
+@media (max-width: 1350px){
+    #container{
+        height: 420vh;
+    }
+    #nextWord{
+        width: 120px;
+        font-size: 80%;
+        float: left;
+        height: 60px;
+    }
+    #successWord{
+        width: 120px;
+        font-size: 80%;
+        float: right;
+        height: 60px;
+    }
+    #header{
+        height: 7vh;
+    }
+    .gameSteps{
+        font-size: 120%;
+    }
+    #gameRules{
+        font-size: 90%;
+    }
+    #btn{
+        height: 40px;
+    }
+    .b-page_newyear{
+        height: 18vh;
+    }
+}

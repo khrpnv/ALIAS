@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container{
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+        }
+        #playCards{
+            margin: auto;
+            width: 250px;
+            height: 450px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid lightgreen;
+            position: relative;
+            display: none;
+            margin-top: 20px;
+        }
+        #cardHead{
+            width: inherit;
+            height: 15%;
+            background-color: lightgreen;
+            text-align: center;
+        }
+        #cardFoot{
+            width: inherit;
+            height: 15%;
+            bottom: 0;
+            position: absolute;
+            background-color: lightgreen;
+        }
+        .cardTitle{
+            font-family: cursive;
+            font-size: 30px;
+            color: white;
+            font-weight: 200;
+        }
+        .difficultLevel{
+            font-family: cursive;
+            font-size: 20px;
+            color: white;
+            font-weight: 200;
+        }
+        #cardWords{
+            text-align: left;
+            font-family: "Gill Sans Nova Cond Lt";
+            font-size: 28px;
+            font-weight: 200;
+        }
+        #wordsList{
+            color: green;
+        }
+        #cardFoot{
+            background-image: url("source/mainIcon.png");
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        #timer{
+            width: 350px;
+            margin: auto;
+            height: 50px;
+            font-size: 20px;
+            font-family: "Gill Sans Nova Cond Lt";
+            font-weight: 200;
+            color: green;
+            background-color: lightgreen;
+        }
+        #btn{
+            border-radius: 3px;
+            width: 100px;
+            height: 25px;
+            border: 1px solid dodgerblue;
+            background-color: dodgerblue;
+            color: white;
+            margin: auto;
+        }
+        #btn:hover{
+            cursor: pointer;
+            border: 1px solid blue;
+        }
+        #btn{
+            display: block;
+        }
+        #random3{
+            display: none;
+        }
+        #random2{
+            display: none;
+        }
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 10px;
+        }
+
+        .custom-dropdown select {
+            background-color: #2980B9;
+            color: #fff;
+            font-size: inherit;
+            padding: .5em;
+            padding-right: 2.5em;
+            border: 0;
+            margin: 0;
+            border-radius: 3px;
+            text-indent: 0.01px;
+            text-overflow: '';
+            -moz-appearance: none;
+            -webkit-appearance:none;
+            appearance: none;
+        }
+        .custom-dropdown select::-ms-expand {
+            display: none;
+        }
+
+        .custom-dropdown::before,
+        .custom-dropdown::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .custom-dropdown::after {
+            content: "\25BC";
+            height: 1em;
+            font-size: .625em;
+            line-height: 1;
+            right: 1.2em;
+            top: 50%;
+            margin-top: -.5em;
+        }
+
+        .custom-dropdown::before {
+            width: 2em;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0,0,0,.2);
+        }
+
+        .custom-dropdown::after {
+            color: rgba(0,0,0,.6);
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="newyear.js"></script>
+    <link href="newyear.css" rel="stylesheet" />
+</head>
+<body style="background: none";>
+<div class="b-page_newyear">
+    <div class="b-page__content">
+
+        <i class="b-head-decor">
+            <i class="b-head-decor__inner b-head-decor__inner_n1">
+                <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+            </i>
+
+            <i class="b-head-decor__inner b-head-decor__inner_n2">
+                <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+            </i>
+            <i class="b-head-decor__inner b-head-decor__inner_n3">
+
+                <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+            </i>
+            <i class="b-head-decor__inner b-head-decor__inner_n4">
+                <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+            </i>
+            <i class="b-head-decor__inner b-head-decor__inner_n5">
+                <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+            </i>
+            <i class="b-head-decor__inner b-head-decor__inner_n6">
+                <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+            </i>
+            <i class="b-head-decor__inner b-head-decor__inner_n7">
+                <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+
+                <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+            </i>
+        </i>
+
+    </div>
+</div>
+
+<div id="snow">
+</div>
+<table class="table-bordered" id="resultsTable" width="250px" style="margin: auto">
+    <tr>
+        <th scope="col" class="tableName">Название команды</th>
+        <th scope="col" class="tableScore">Счет</th>
+    </tr>
+    <tr>
+        <td id="teamName1" class="tableName">Team1</td>
+        <td class="tableScore" id="teamScore1">0</td>
+    </tr>
+    <tr>
+        <td id="teamName2" class="tableName">Team2</td>
+        <td class="tableScore">0</td>
+    </tr>
+</table>
+<div style="text-align: center">
+        <span class="custom-dropdown">
+    <select required id="gameType">
+        <option disabled selected value="startSelect">Выберите режим игры</option>
+        <option value="classicSelect">Классический</option>
+        <option value="celebritiesSelect">Знаменитости XX-XXI века</option>
+        <option value="englishSelect">Английские слова</option>
+        <option value="theorySelect">Техническая терминология</option>
+        <option value="historicalSelect">Исторические личности</option>
+    </select>
+</span><br>
+    <span class="custom-dropdown">
+    <select required id="gameTime">
+        <option disabled selected value="startSelect">Выберите время для угадывания</option>
+        <option id="30seconds">30</option>
+        <option id="45seconds">45</option>
+        <option id="60seconds">60</option>
+    </select>
+    </span><br>
+    <button id="selectType">Выбрать</button>
+</div>
+<div id="timer">
+    <span>Время до конца раунда: </span><span id="timer_inp"></span><br>
+    <span>Номер вашего слова: </span><span id="wordNumber"></span><br>
+    <button id="btn">Начать раунд</button>
+</div>
+<div id="container">
+    <div id="playCards">
+        <div id="cardHead">
+            <span class="cardTitle">ALIAS</span><br>
+            <span class="difficultLevel">Easy</span>
+        </div>
+        <div id="cardWords">
+            <ol type="1" id="wordsList">
+                <li id="word1"></li>
+                <li id="word2"></li>
+                <li id="word3"></li>
+                <li id="word4"></li>
+                <li id="word5"></li>
+                <li id="word6"></li>
+                <li id="word7"></li>
+                <li id="word8"></li>
+            </ol>
+        </div>
+        <div id="cardFoot">
+        </div>
+    </div>
+    <button id="random2">Yes</button>
+    <button id="random3">No</button>
+</div>
+</body>
+<script>
+    function get(id) {
+        return document.getElementById(id);
+    }
+
+    function soundClick(str) {
+        var audio = new Audio();
+        audio.src = str;
+        audio.autoplay = true;
+    }
+
+    function randomColors (arr){
+        var colorIndex = Math.floor(Math.random()*arr.length + 0);
+        get("cardHead").style.backgroundColor = ""+arr[colorIndex];
+        get("cardFoot").style.backgroundColor = ""+arr[colorIndex];
+        get("playCards").style.borderColor = ""+arr[colorIndex];
+        get("wordsList").style.color = ""+arr[colorIndex];
+    }
+
+    function timer() {
+        var obj = get('timer_inp');
+        obj.innerHTML--;
+
+        if (obj.innerHTML == 0) {
+            soundClick('source/finishSound.mp3');
+            get('playCards').style.display = "none";
+            get('teamScore1').innerHTML = score1;
+            setTimeout(function () {
+            }, 1000);
+        }
+        else {
+            setTimeout(timer, 1000);
+        }
+    }
+
+    function generateCards (arr){
+        var replace = [];
+        for (var i = 0; i < arr.length; i++){
+            replace[i] = arr[i];
+        }
+        for (var i = 1; i < 9; i++) {
+            var pos = Math.floor(Math.random() * replace.length + 0);
+            get("word"+i).innerHTML = replace[pos];
+            replace.splice(pos,1);
+        }
+    }
+
+    function gameTime() {
+        var time;
+        for (var i = 0; i < get("gameTime").length; i++) {
+            if (get("gameTime").options.selectedIndex == 1)
+                time = Number(get("30seconds").innerHTML);
+            else if (get("gameTime").options.selectedIndex == 2)
+                time = Number(get("45seconds").innerHTML);
+            else if (get("gameTime").options.selectedIndex == 3)
+                time = Number(get("60seconds").innerHTML);
+        }
+        return time;
+    }
+
+    var score1 = 0;
+    var score2 = 0;
+    var colors = ['#9ED112','#50B517','#486EAF','#179067','#9F49AC','#CC42A2','#FF3BA7','#FF8100','#FF5800','#FEAC00','#FFCC01','#960E53','#5C1293'];
+    var classic = ['дом','мост','лупа','перец','город','морж','пират','море','яблоко','акула','солнце','шарик','пластилин','ведро','начальник','пылесос','аквариум','монитор','чеснок','страус','дверь','расстояние','лень','дым','укус','рыба','занятие','комар','спортсмен','провод','мотор','жена','сок','береза','ваза','какао','мелодия','аплодисменты','урок','салфетка','тычинка','неон','миндаль','войско','шампунь','мафия','дельфин','пирожное','ожог','снегопад','павлин','барьер','критика','динозавр','злость','корова','рыцарь','футбол','знаменитость','экскалатор','карандаш','роща','календула','мамонт','алюминий','герцог','леопард','троллейбус','родник','тёща','фиалка','петуния','питомец','казак','фильм','ватрушка','пенсионер','свояченица','миллионер','скоморох','пирамида','белорус','танго','лесть','планета','кориандр','мушкетер','горошек','бейсбол','баллада','росомаха','ракетка','интрига','предложение','велосипед','водитель','сирень','брошь','пастила','виноград','кимоно','свекровь','сервиз','грейпфрут','теплоход','паровоз','пума','фестиваль','скалка','пластилин','наушники','экскурсия','икра','иедуза','факир','зерно','белый медведь','пыльца','необоснованный','моряк','скамья','Чили','солнечное затмение','негодяй','спасение','переводчик','метание','олень','желание','контактные линзы','планшет','язва желудка','марочный','молочный зуб','хищник','ворс','кинотеатр','суп-пюре','развитие','баран','паук','средниц палец','храпение','выстрел','перебранка','роликовые коньки','сушеный гриб','суша','медовый месяц','кофейная чашка','белый','ведущий','ребенок','синий','защита','стихотворение','компромат','перечислить','тюлень','товарообмен','пьяный','мультфильм','пожарная машина','бревно','плеваться','детский стул','контур','снег','береза','пыль','лягушка','зарядное устройство','пряник','вулкан','дым','фундамент','горло','хлопья','медсестра','интернет','ангар','орел','водопроводчик','тарелка','степлер','изумруд','косичка','нос','купальный халат','антенна','отражени','компостер','скандалист','головная боль','извержение','оперение','кратер','аромат','пулемёт','лидерство','блин','масштаб','погода','язычник','ржаветь','голень','бензин','книжный шкаф','конюшня','фокус','мнение','замужество','карман','маленький','восхищение','вор','остриё','террорист','будильник','гроза','наколенник','девушка','пчела','мул','сапожник','диаметр','напоминать','трогать','таз','порошок','защита','цент','планка','сахар','флюгер','мельница','машинист','запертый','бедный','камин','Средние Века','бильярднвй','пресмыкаться','топор','веточка','черника','резервуар','шершавый','близорукий','гончая','доставка','роман','парламент','магазин','джунгли','вампир','сало','борщ','наследник','принц','право голоса','импичмент','легитимный','право голоса','воротник','звание','король','властелин','терять время','авиация','фондю','охрана','полиция','склон','попытка','грузовик','клавиатура','таблица','пара','занятие','спектр','скорость','серпантин','деньги','буквы','предложения','дневник','учебник','ссылка','следить','наблюдать','шпион','сыщик','подушка','линолеум','одеяло','канал','труба','стекло','духовой шкаф','торт','плотность','кисель','желе','пипетка','рентген','папка','реферат','диктант','изысканный','барная стойка','терминал','запятая','переулок','сцена','занавес','пленка','кастрюля','гарячий','университет'];
+    var celebrities = ['Криштиану Роналду','Эминем','Лионель Месси','Брюс Ли','Джеки Чан','Бенедикт Кэмбербетч','Марк Цукерберг','Бил Гейтс','Стивен Джобс','Стив Возняк','Вин Дизель','Адам Сэндлер','Пол Маккартни','Том Круз','Неймар','Дарио Срна','Ерик Кантона','Дэвид Бекхем','Джон Терри','Bon Jovi','Рианна','Усейн Болт','Гарет Бейл','Бритни Спирс','Златан Ибрагимович','Поль Погба','Уитни Хьюстон','Джим Керри','Джеймс Камерон','Стивен Спилберг','Анджелина Джоли','Бред Питт','Дженифер Лопес','Эмма Уотсон','Елизавета Боярская','Леди Гага','Кристина Асмус','Перис Хилтон','Татьяна Навка','Светлана Лобода','Тина Кароль','Татьяна Тарасова','Брюс Уиллис','Орландо Блум','Валерий Меладзе','Филипп Киркоров','Киану Ривз','Джони Депп','Николас Кейдж','Павел Воля','Дмитрий Нагиев','Владимир Зеленский','Евгений Кошевой','Джоан Роулинг','ЛеБрон Джеймс','Арнольд Шварцнегер','Джейсон Стэтхэм','Марк Уолберг','Сильвестр Сталлоне','Микки Рурк','Уилл Смит','Стивен Сигал','Роберт Де Ниро','Жерар Депардье','Жан Рено','Пьер Ришар','Луи де Фюнес','Ален Делон','Пол Уокер','Антонио Бандерас','Чак Норрис','Морган Фримен','Джефф Голдблюм','Владимир Кличко','Дмитрий Монатик','Алексей Потапенко','Ольга Фрэймут','Наталья Могилевская','Святослав Вакарчук','Олег Винник','Стас Михайлов','Бумбокс','Иван Дорн','Ирина Билык','Джамала','Макс Барских','Сергей Бабкин','Вера Брежнева','Анантолий Тимощук','Лилия Подкопаева','Василий Ломаченко','Виталий Кличко','Яна Клочкова','Сергей Бубка','Андрей Шевченко','Степан Казанин','Александр Пикалов','Елена Кравец','Юрий Корявченков','Мика Фаталов','Юрий Крапов','Валерий Жидков','Гарик Мартиросян','Гарик Харламов','Тимур Батрудинов','Константин Хабенский','Ольга Полякова','Михаил Галустян','Сергей Светлаков','Александр Ревва','Игорь Ласточкин','Антон Лирник','Анастасия Волчоков','Мадонна','Шакира','Майкл Джексон','Элвис Пресли','Курт Кобейн','Наталия Богунова','Федор Добронравов','Анатолий Папанов','Владимир Высоцкий','Наталья Андрейченко','Анантолий Васильев','Лайма Вайкуле','Надежда Бабкина','Олег Меньшиков','Битлз','Александр Домогаров','Квентин Тарантино','Кэмэрон Диас','Гордон Браун','Максим Галкин','Дарья Донцова','Владислав Галкин','Элизабет Тейлор','Тина Канделаки','Анастасия Стоцкая','Александр Абдулов','Виктория Бэкхем','Джулия Робертс','Тина Тернер','Юрий Никулин','Иосиф Кобзон','Линдси Лохан','Евгений Плющенко','Андрей Миронов','Шэрон Стоун','Тимати','Рики Мартин','Чарли Чаплин','Робби Уильямз','Александр Масляков','Земфира','Бен Аффлек','Оззи Осборн','Кевин Костнер','Николай Басков','Сильвио Берлускони','Сергей Безруков','Мэрайя Кэри','Анжелика Варум','Лариса Долина','Жан-Клод Ван Дамм','Дмитрий Маликов','Евгений Петросян','Стас Пьеха','Ирина Слуцкая','Эми Уайнхаус','Джон Леннон','Нелли Уварова','Барак Обама','Дональд Трамп','Лев Лещенко','НАталья Подольская','Рената Литвинова','Анастасия Заворотнюк','Татьяна Овсиенко','Григорий Лепс','София Ротару','Стивен Кинг','Бари Алибасов','Хью Джекман','Роман Павлюченко','Дэвид Линч','Валдис Пельш','Николь Ричи','Макколей Калкин','Эдита Пьеха','Леонид Ярмольник','Скарлет Йохансон','Дэнни Де Вито','Ридли Скотт','Надежда Дорофеева','Анастасия Каменских','Василий Вирастюк','Анна Бессонова','Руслана','Илья Ковальчук','Олег Скрипка','Опра Уинфри','Бейонсе Ноулз','Сандра Баллок','Саймон Коуэлл','Майли Сайрус','Коби Брайант','Брюс Спрингстин','Майкл Джордан','Дженифер Энистон','Флойд Майвезер','Джей Лено','Роберт Паттинсон','Шакил О`нил','Мэнни Пакьяо','Джордж Клуни','Камерон Диаз','Серена Вильямс','Леонардо ДиКаприо','Роберт Дауни-младший','Джулия Робертс','Мария Шарапова','Дэниэл Рэдклифф','Роман Абрамович','Мэл Гибсон','Михаэль Шумахер','Дэвид Коперфильд','Никол Кидман','Хосеп Гвардиола','Жозе Моуриньо','Билл Клинтон','Роналдо','Роналдинь','Тони Блэр','Стивен Хокинг','Майкл Фелпс','Мохаммед Али','Майк Тайсон','Пеле','Юрия Горбунов','Екатерина Осадчая'];
+    var english = ['microscopic','stallion','coastline','safe mode','field glasses','maniac','noise','cheeky','spread','mixer','ogre','apply','dovecote','iceberg','highwayman','wolf car','toy car','lobster','harpist','evaporate','fisherman','pilot','face','tropical','will','tax-free','chilly','fresh','headphones','a cat','to offer','to underestimate','typical','a shooting star','slim','a symbol','canned food','a family','a receipt','a candidate','game','console','an elder brother','fatherland','a collar','a trial test','snow white','a visiting card','magnificent','a palace','kingdom','reserved','mother in law','hesitate','academician','search','gambler','candidate','jungle','star','moon','son','sun','daughter','finger','tunable','greedy','waistline','eat','bacteria','air','fork','glue','gold','chair','glass','knife','spoon','steel','timer','paper','pencil','dice','judge','quiz','question','hobby','apartment'];
+    // alert(celebrities.length);
+    // alert(classic.length);
+    // alert(english.length);
+    var theory = ['a','b','c','d','e','f','g'];
+
+    function checkType() {
+        for (var i = 0; i < get("gameType").length; i++) {
+            if (get("gameType").options.selectedIndex == 1) {
+                get("btn").onclick = function () {
+                    get("playCards").style.display = "block";
+                    get("random2").style.display = "block";
+                    get("random3").style.display = "block";
+                    get('timer_inp').innerHTML = gameTime();
+                    get('wordNumber').innerHTML = Math.floor(Math.random()*8+1);
+
+                    setTimeout(timer, 1000);
+                    generateCards(classic);
+                    randomColors(colors);
+
+                };
+                get("random2").onclick = function () {
+                    score1++;
+                    get("playCards").style.display = "block";
+                    generateCards(classic);
+                    randomColors(colors);
+                };
+                get("random3").onclick = function () {
+                    score1--;
+                    generateCards(classic);
+                    randomColors(colors);
+                };
+            }
+            else if (get("gameType").options.selectedIndex == 2){
+                get("btn").onclick = function () {
+                    get("playCards").style.display = "block";
+                    get("cardWords").style.fontSize = '23px';
+                    get("random2").style.display = "block";
+                    get("random3").style.display = "block";
+                    get('timer_inp').innerHTML = gameTime();
+                    get('wordNumber').innerHTML = Math.floor(Math.random()*8+1);
+
+                    setTimeout(timer, 1000);
+                    generateCards(celebrities);
+                    randomColors(colors);
+
+                };
+                get("random2").onclick = function () {
+                    score1++;
+                    get("playCards").style.display = "block";
+                    generateCards(celebrities);
+                    randomColors(colors);
+                };
+                get("random3").onclick = function () {
+                    score1--;
+                    generateCards(celebrities);
+                    randomColors(colors);
+                };
+            }
+            else if (get("gameType").options.selectedIndex == 3) {
+                get("btn").onclick = function () {
+                    get("playCards").style.display = "block";
+                    get("random2").style.display = "block";
+                    get("random3").style.display = "block";
+                    get('timer_inp').innerHTML = 30;
+                    get('wordNumber').innerHTML = Math.floor(Math.random() * 8 + 1);
+
+                    setTimeout(timer, 1000);
+                    generateCards(english);
+                    randomColors(colors);
+
+                };
+                get("random2").onclick = function () {
+                    score1++;
+                    get("playCards").style.display = "block";
+                    generateCards(english);
+                    randomColors(colors);
+                };
+                get("random3").onclick = function () {
+                    score1--;
+                    generateCards(english);
+                    randomColors(colors);
+                };
+            }
+            else if (get("gameType").options.selectedIndex == 4){
+                get("btn").onclick = function () {
+                    get("playCards").style.display = "block";
+                    get("random2").style.display = "block";
+                    get("random3").style.display = "block";
+                    get('timer_inp').innerHTML = gameTime();
+                    get('wordNumber').innerHTML = Math.floor(Math.random()*8+1);
+
+                    setTimeout(timer, 1000);
+                    generateCards(theory);
+                    randomColors(colors);
+
+                };
+                get("random2").onclick = function () {
+                    score1++;
+                    get("playCards").style.display = "block";
+                    generateCards(theory);
+                    randomColors(colors);
+                };
+                get("random3").onclick = function () {
+                    score1--;
+                    generateCards(theory);
+                    randomColors(colors);
+                };
+            }
+        }
+    }
+    get("selectType").onclick = function () {
+        checkType();
+    };
+
+</script>
+<script src="snow.js"></script>
+</html>
